@@ -1,0 +1,51 @@
+Alphabet:
+
+a. Upper (A - Z) and lower case (a - z) letters of the English alphabet
+b. Decimal digits (0 - 9)
+
+Lexic:
+
+a. Special symbols, representing:
+
+i. operators: = += -= *= /= %= ++ -- + - * / % < <= > >=
+ii. separators: space , : ; newline ( ) tab [ ]
+iii. reserved words: let const integer character string write read if then else for do while begin end and or not is isnot
+
+b. Identifiers
+
+A sequence of letters (lowercase and uppercase) and digits such that the first character of the identifier is a letter.
+
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<valid_char> ::= <letter> | <digit>
+<char_seq> ::= <valid_char> | <valid_char><char_seq>
+<identifier> ::= <letter> | <letter><char_seq>
+
+c. Constants
+
+1. Integer
+
+<n_zero_digit> ::= 1 | 2 | ... | 9
+<digit> ::= 0 | <n_zero_digit>
+<sign> ::= + | -
+<digit_seq> ::= <digit> | <digit><digit_seq>
+<unsigned_int> ::= <n_zero_digit> | <n_zero_digit><digit_seq>
+<constant_integer> ::= 0 | <unsigned_integer> | <sign><unsigned_integer>
+
+2. Character
+
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<special_char> ::= + | - | * | / | % | < | <= | > | >= | = | , | : | space | ( | )
+<char> ::= <letter> | <digit> | <special_char>
+<constant_character> ::= '<char>'
+
+3. String
+
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<special_char> ::= + | - | * | / | % | < | <= | > | >= | = | , | : | space | ( | )
+<char> ::= <letter> | <digit> | <special_char>
+<string> ::= <char> | <char><string>
+<constant_string> ::= "<string>"
+
