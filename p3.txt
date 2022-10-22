@@ -1,0 +1,25 @@
+# The program computes the min and max of n numbers
+
+let a: integer[], n: integer, i: integer, mi: integer, ma: integer;
+write("The number of numbers is: ");
+read(n);
+write("The numbers are: ");
+for i = 0, i < n, i++ do
+begin
+	read(a[i]);
+end
+mi = a[0];
+ma = a[0];
+for i = 1, i < n, i++ do
+begin
+	if a[i] < mi then
+	begin
+		mi = a[i];
+	end
+	if a[i] > ma then
+	begin
+		ma = a[i];
+	end
+end
+write("The minimum of the numbers is: ", mi);
+write("The maximum of the numbers is: ", ma);
