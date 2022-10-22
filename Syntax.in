@@ -14,7 +14,9 @@ Syntax
 <type> ::= <simple_type> | <array_type>
 
 <id_list> ::= IDENTIFIER | IDENTIFIER, <id_list>
-<declaration> ::= let <id_list>: <type>;
+<simple_declaration> ::= <id_list>: <type>
+<compound_declaration> ::= <simple_declaration> | <simple_declaration>, <compound_declaration>
+<declaration> ::= let <compound_declaration>;
 <declaration_list> ::= <declaration> | <declaration><declaration_list>
 
 <factor> ::= IDENTIFIER | CONSTANT | <access_array_element> | (<expression>)
