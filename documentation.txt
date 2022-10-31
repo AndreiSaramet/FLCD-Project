@@ -1,0 +1,11 @@
+https://github.com/AndreiSaramet/FLCD-Project
+
+The Symbol Table is used to store identifiers and constants found in the program.
+
+In what follows, identifiers/constants will be referred to as values.
+
+The symbol table interface has only one method, insert, that adds the given value in the symbol table, or returns its current position if it already is in the table. The scanner will have two instances of the symbol table, one for identifiers and one for constants.
+
+The interface is implemented on a hash table (an array) with a fixed size of 47. As suggested in the lecture, the hash function computes the sum of the ASCII codes of the characters present in the value and returns the position as the sum of characters modulo the size of the table, that is 47.
+
+Collisions in the hash table are resolved by separate chaining, i.e. each slot in the hash table is, in fact, a linked list containing the elements that have been hashed to that position.
