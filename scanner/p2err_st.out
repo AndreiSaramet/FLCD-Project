@@ -1,0 +1,13 @@
+Symbol Table implemented on a hash table with collision resolution through separate chaining
+
+Identifiers Symbol Table
+
+a <-> (3, 0)
+b <-> (4, 0)
+r <-> (20, 0)
+
+Constants Symbol Table
+
+0 <-> (1, 0)
+"The gcd of the two numbers is: " <-> (32, 0)
+"Introduce the numbers: " <-> (39, 0)

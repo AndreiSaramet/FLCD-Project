@@ -1,0 +1,17 @@
+Symbol Table implemented on a hash table with collision resolution through separate chaining
+
+Identifiers Symbol Table
+
+d <-> (6, 0)
+x <-> (26, 0)
+flag <-> (34, 0)
+
+Constants Symbol Table
+
+0 <-> (1, 0)
+1 <-> (2, 0)
+2 <-> (3, 0)
+3 <-> (4, 0)
+"Introduce the number: " <-> (18, 0)
+"The number is not prime" <-> (23, 0)
+"The number is prime" <-> (30, 0)

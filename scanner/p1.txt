@@ -1,0 +1,28 @@
+# The program checks if a number is prime
+
+let x: integer, d: integer, flag: integer;
+write("Introduce the number: ");
+read(x);
+if x < 2 or x > 2 and x % 2 is 0 then
+begin
+	write("The number is not prime");
+end 
+else then
+begin
+	flag=+1-1;
+	for d=3,d*d<=x,d+=2 do
+	begin
+		if x % d is 0 then
+		begin
+			flag = 0;
+		end
+	end
+	if flag is 1 then
+	begin
+		write("The number is prime");
+	end
+	else then
+	begin
+		write("The number is not prime");
+	end
+end
