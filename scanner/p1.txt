@@ -9,8 +9,8 @@ begin
 end 
 else then
 begin
-	flag=+1-1;
-	for d=3,d*d<=x,d+=2 do
+	flag = 1;
+	for d = 3, d * d <= x, d += 2 do
 	begin
 		if x % d is 0 then
 		begin
