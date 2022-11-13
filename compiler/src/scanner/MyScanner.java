@@ -78,36 +78,39 @@ public class MyScanner {
 
     private void setup(String tokensFileName, String fileSeparator) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(tokensFileName))) {
-            List<String> lines = bufferedReader.lines().toList();
-            int index = 0;
-            while (index < lines.size()) {
-                String keyword = lines.get(index);
-                if (fileSeparator.equals(keyword)) {
-                    break;
-                }
-                this.reservedWords.add(keyword);
-                index++;
-            }
-            index++;
-            while (index < lines.size()) {
-                String operator = lines.get(index);
-                if (fileSeparator.equals(operator)) {
-                    break;
-                }
-                if (operator.length() == 1) {
-                    this.operators.add(operator);
-                } else {
-                    this.specialOperators.add(operator);
-                }
-                index++;
-            }
-            index++;
-            while (index < lines.size()) {
-                this.separators.add(lines.get(index));
-                index++;
-            }
+            this.parseTokensFile(bufferedReader.lines().toList(), fileSeparator);
         } catch (IOException ioException) {
             throw new RuntimeException(String.format("An error occurred while opening the %s file\n", tokensFileName), ioException);
+        }
+    }
+
+    private void parseTokensFile(List<String> lines, String fileSeparator) {
+        int index = 0;
+        while (index < lines.size()) {
+            String keyword = lines.get(index);
+            if (fileSeparator.equals(keyword)) {
+                break;
+            }
+            this.reservedWords.add(keyword);
+            index++;
+        }
+        index++;
+        while (index < lines.size()) {
+            String operator = lines.get(index);
+            if (fileSeparator.equals(operator)) {
+                break;
+            }
+            if (operator.length() == 1) {
+                this.operators.add(operator);
+            } else {
+                this.specialOperators.add(operator);
+            }
+            index++;
+        }
+        index++;
+        while (index < lines.size()) {
+            this.separators.add(lines.get(index));
+            index++;
         }
     }
 
