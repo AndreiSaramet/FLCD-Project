@@ -38,7 +38,7 @@ c. Constants
 <digit> ::= 0 | 1 | ... | 9
 <special_char> ::= + | - | * | / | % | < | <= | > | >= | = | , | : | space | ( | )
 <char> ::= <letter> | <digit> | <special_char>
-<constant_character> ::= '<char>'
+<constant_character> ::= '<char>' | ''
 
 3. String
 
@@ -47,5 +47,5 @@ c. Constants
 <special_char> ::= + | - | * | / | % | < | <= | > | >= | = | , | : | space | ( | )
 <char> ::= <letter> | <digit> | <special_char>
 <string> ::= <char> | <char><string>
-<constant_string> ::= "<string>"
+<constant_string> ::= "<string>" | ""
 
