@@ -1,0 +1,13 @@
+# The program computes the gcd (greatest common divisor) of 2 numbers
+
+let a: integer, b: integer, r: integer;
+write("Introduce the numbers: ");
+read(a);
+read(b);
+while b is not 0 do
+begin
+	r = a % b;
+	a = b;
+	b = r;
+end
+write("The gcd of the two numbers is: ", a);
