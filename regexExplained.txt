@@ -1,0 +1,75 @@
+b. Identifiers
+
+Natural language definition.
+A sequence of letters (lowercase and uppercase) and digits such that the first character of the identifier is a letter.
+
+BNF definition.
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<valid_char> ::= <letter> | <digit>
+<char_seq> ::= <valid_char> | <valid_char><char_seq>
+<identifier> ::= <letter> | <letter><char_seq>
+
+Regular expression: identifier = ^[a-zA-Z][a-zA-Z0-9]*$
+
+Explanation.
+The regular expression fully matches the following pattern:
+- start with a letter (lowercase or uppercase) - the class [a-zA-Z] with multiplication one matches the first character of an identifier (which must be a letter) (<letter> from the definition)
+- end, or continue with any number of letters (lowercase or uppercase) or digits - the class [a-zA-Z0-9] quantified zero or more times matches the rest of the identifier (<char_seq> from the definition)
+
+c. Constants
+
+1. Integer
+
+BNF definition.
+<n_zero_digit> ::= 1 | 2 | ... | 9
+<digit> ::= 0 | <n_zero_digit>
+<sign> ::= + | -
+<digit_seq> ::= <digit> | <digit><digit_seq>
+<unsigned_int> ::= <n_zero_digit> | <n_zero_digit><digit_seq>
+<constant_integer> ::= 0 | <unsigned_integer> | <sign><unsigned_integer>
+
+Regular expression: constant_integer = ^0|[+-]?[1-9][0-9]*$
+
+Explanation.
+The regular expression fully matches the following two patterns:
+- the character 0, appearing exactly once
+- the pattern:
+    - start, or not, with a sign (+ or -) - the class [+-] quantified zero or one time (<sign> from the definition)
+    - continue with a nonzero digit - the class [1-9] with multiplication one matches the leading digit in an integer (which must not be 0) (<n_zero_digit> from the definition)
+    - end, or continue with any number of digits - the class [0-9] quantified zero or more times matches the rest of the integer (<digit_seq> from the definition)
+
+2. Character
+
+BNF definition.
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<special_char> ::= + | - | * | / | % | < | > | = | , | : | space | ( | )
+<char> ::= <letter> | <digit> | <special_char>
+<constant_character> ::= '<char>' | ''
+
+Regular expression: constant_character ^'[a-zA-Z0-9+*/%<=> ,:()_.?!-]?'$
+
+Explanation.
+The regular expression fully matches the following pattern:
+- start with a single quotation mark
+- continue, or just end with a single quotation mark, with a character (letter, digit or special sign) - the class [a-zA-Z0-9+*/%<=> ,:()_.?!-] with multiplication zero or one time matches the accepted characters in a character constant (<char> from the definition)
+- end with a single quotation mark
+
+3. String
+
+BNF definition.
+<letter> ::= A | B | ... | Z | a | b | ... | z
+<digit> ::= 0 | 1 | ... | 9
+<special_char> ::= + | - | * | / | % | < | <= | > | >= | = | , | : | space | ( | )
+<char> ::= <letter> | <digit> | <special_char>
+<string> ::= <char> | <char><string>
+<constant_string> ::= "<string>" | ""
+
+Regular expression: constant_string = ^"[a-zA-Z0-9+*/%<=> ,:()_.?!-]*"$
+
+Explanation.
+The regular expression fully matches the following pattern:
+- start with double quotation mark
+- continue, or just end with another double quotation mark, with any number of characters (letters, digits or special characters) - the class [a-zA-Z0-9+*/%<=> ,:()_.?!-] quantified zero or more times matches the accepted characters in a string constant (<string> from the definition)
+- end with a double quotation mark
