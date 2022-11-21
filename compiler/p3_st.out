@@ -1,0 +1,18 @@
+The Symbol Table is implemented on a hash table with collision resolution through separate chaining
+
+Identifiers Symbol Table
+
+a <-> (3, 0)
+i <-> (11, 0)
+n <-> (16, 0)
+ma <-> (18, 0)
+mi <-> (26, 0)
+
+Constant Symbol Table
+
+0 <-> (1, 0)
+1 <-> (2, 0)
+"The minimum of the numbers is: " <-> (22, 0)
+"The number of numbers is: " <-> (24, 0)
+"The maximum of the numbers is: " <-> (24, 1)
+"The numbers are: " <-> (36, 0)
