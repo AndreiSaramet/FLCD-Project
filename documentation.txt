@@ -1,0 +1,10 @@
+https://github.com/AndreiSaramet/FLCD-Project/tree/lab4
+
+The finite automaton is implemented using:
+
+- sets for the finite sets of states, terminals and final states, respectively
+- a map, having as keys pairs of type <state, terminal> and as values lists of states, for the transition function.
+
+As the finite automaton can be non-deterministic, the transition function may produce multiple states from the same pair <state, terminal>. Hence, the map has as associated values sets of states instead of single states.
+
+If the value is a list with a single element for each key, then the finite automaton is deterministic.
