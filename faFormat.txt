@@ -1,0 +1,9 @@
+file = states "\n" alphabet "\n" initial-state "\n" final_states "\n" transitions
+states = state {state}
+alphabet = terminal {terminal}
+initial-state = state
+final-states = state {state}
+transitions = transition {"\n" transition}
+transition = state "|" terminal "|" state
+state = "p" | "q" | ...
+terminal = "0" | "1" | ... | "a" | "b" | ...
