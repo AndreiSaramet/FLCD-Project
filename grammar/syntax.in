@@ -1,0 +1,40 @@
+<program> # <lines> # <line> # <statement> # <while_stmt> # <for_stmt> # <if_stmt> # <structured_statement> # <stmt_list> # <statement> # <compound_stmt> # <simple_stmt> # <io_stmt> # <assignment_stmt> # <c_expression> # <c_term> # <c_factor> # <condition> # <expression_list> # <expression> # <term> # <factor> # <declaration_list> # <declaration> # <compound_declaration> # <simple_declaration> # <id_list> # <type> # <array_type> # <simple_type> # <id> # <access_array_element> # <logic_b_op> # <relational_op> # <arithmetic_s_op> # <arithmetic_p_op> # <assignment_b_op> # <assignment_u_op>
+IDENTIFIER # CONSTANT # let # const # integer # character # string # read # write # if # then # else # and # or # not # is # isnot # begin # end # for # while # do # = # += # -= # *= # /= # %= # ++ # -- # + # - # * # / # % # < # <= # > # >= # : # , # ; # ( # ) # [ # ]
+<program>
+<assignment_u_op> @ ++ | --
+<assignment_b_op> @ = | += | -= | *= | /= | %=
+<arithmetic_p_op> @ * | / | %
+<arithmetic_s_op> @ + | -
+<relational_op> @ < | <= | > | >= | is | isnot
+<logic_b_op> @ and | or 
+<access_array_element> @ IDENTIFIER [ IDENTIFIER ] | IDENTIFIER [ CONSTANT ]
+<id> @ IDENTIFIER | <access_array_element>
+<simple_type> @ integer | character | string
+<array_type> @ <simple_type> [ CONSTANT ]  | <simple_type> [ ]
+<type> @ <simple_type> | <array_type>
+<id_list> @ IDENTIFIER | IDENTIFIER , <id_list>
+<simple_declaration> @ <id_list> : <type>
+<compound_declaration> @ <simple_declaration> | <simple_declaration> , <compound_declaration>
+<declaration> @ let <compound_declaration> ;
+<declaration_list> @ <declaration> | <declaration> <declaration_list>
+<factor> @ IDENTIFIER | CONSTANT | <access_array_element> | ( <expression> )
+<term> @ <factor> | <factor> <arithmetic_p_op> <term>
+<expression> @ <term> | <term> <arithmetic_s_op> <expression>
+<expression_list> @ <expression> | <expression> , <expression_list>
+<condition> @ <expression> <relational_op> <expression>
+<c_factor> @ <condition> | not ( <condition> ) | ( <c_expression> )
+<c_term> @ <c_factor> | <c_factor> and <c_term>
+<c_expression> @ <c_term> | <c_term> or <c_expression>
+<assignment_stmt> @ <id> <assignment_u_op> ; | <id> <assignment_b_op> <expression> ;
+<io_stmt> @ read ( <id> ) ; | write ( <expression_list> ) ;
+<simple_stmt> @ <assignment_stmt> | <io_stmt>
+<compound_stmt> @ begin <stmt_list> end
+<statement> @ <simple_stmt> | <structured_statement>
+<stmt_list> @ <statement> | <statement> <stmt_list>
+<structured_statement> @ <compound_stmt> | <if_stmt> | <for_stmt> | <while_stmt>
+<if_stmt> @ if <c_expression> then <statement> | if <c_expression> then <statement> else <statement>
+<for_stmt> @ for <assignment_stmt> , <c_expression> , <assignment_stmt> do <statement>
+<while_stmt> @ while <c_expression> do <statement>
+<line> @ <declaration_list> | <statement>
+<lines> @ <line> | <line> <lines>
+<program> @ <lines>
